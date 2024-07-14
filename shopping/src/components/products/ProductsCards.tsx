@@ -1,7 +1,26 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import * as S from "./cardsStyles"
 import { FiShoppingCart } from "react-icons/fi";
 
+
+
 export const ProductsCards: React.FC = () => {
+const [data, setData] = useState([])
+
+
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products')
+   .then(response => response.json())
+   .then(data => {
+    setData(data)
+    console.log(data)
+   })
+}, [])
+
+
+
+
     return(
         <S.Card>
             <S.ProductImage/>
@@ -17,28 +36,3 @@ export const ProductsCards: React.FC = () => {
         </S.Card>
     )
 }
-
-async function getData() {
-    try{
-        const response = fetch('https://fakestoreapi.com/products')
-        .then(res=>res.json())
-        .then(json=>console.log(json))
-
-
-        
-        console.log(response)
-/*
-        const dataObject = {
-            image:data.image,
-            title: data.title,
-            price:data.price,
-            rating:data.rating
-        }
-*/
-    }
-    catch(err) {
-        console.log('error:', err)
-    }
-}
-
-getData()
