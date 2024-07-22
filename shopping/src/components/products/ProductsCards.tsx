@@ -21,7 +21,6 @@ export const ProductsCards: React.FC = () => {
         
             {products?.map(data => {
                 return(
-                    
                         
                             <S.Li key={data.id}>
                                 <S.Card>
@@ -31,10 +30,11 @@ export const ProductsCards: React.FC = () => {
 
                                     <S.ReviewContainer>
                                         <S.Review>{data.rating.rate}</S.Review> 
-                                        <S.Price>{data.price}</S.Price>
+                                        <S.Price>R${data.price}</S.Price>
                                     </S.ReviewContainer>
-                                
-                                    <S.AddtoCartButton>Add to Cart<FiShoppingCart/></S.AddtoCartButton>
+                                    <S.AddtoCartButtonWrapper>
+                                        <S.AddtoCartButton>Add to Cart<FiShoppingCart/></S.AddtoCartButton>
+                                    </S.AddtoCartButtonWrapper>
                                 </S.Card>
                             </S.Li>
                         
