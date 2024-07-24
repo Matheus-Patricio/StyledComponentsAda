@@ -2,6 +2,7 @@ import * as S from "./cardsStyles"
 import { FiShoppingCart } from "react-icons/fi";
 import { useFetch } from "../apiHooks/useFetch";
 
+
 type ObjectData = {
     id: number,
     image: string,

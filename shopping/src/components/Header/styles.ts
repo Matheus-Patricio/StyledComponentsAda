@@ -24,25 +24,42 @@ export const ButtonWrapper = styled.div`
     gap: 1rem; 
        
 `
-export const AuthButton = styled.button`
+interface LoggedButton {
+    isLogged: boolean
+}
+
+export const AuthButton = styled.button<LoggedButton>`
     border: none;
-    border-radius: 18px;
-    background-color:blue;
+    border-radius: 12px;
+    background-color:${(props) => props.isLogged ?'red' : 'blue'};
+    color: white;
     padding: 5px;
     font-size: 20px;
 
     display: flex;
     align-items: center;
     gap: 0.25rem;
+
+    &:hover {
+        
+    }
 `
 export const CartButton = styled.button`
+    background-color:#00FF00;
     border: none;
-    border-radius: 18px;
+    border-radius: 12px;
     padding: 5px;
     font-size: 20px;
 
     display: flex;
     align-items: center;
     gap: 0.25rem;
+
+    &:hover {
+        background-color: #006600;
+        transition: all 0.3s ;
+        color: white ;
+    }
+
 
 `
