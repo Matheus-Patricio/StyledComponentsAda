@@ -15,4 +15,12 @@ export const GlobalStyles = createGlobalStyle`
     body, button{
         font-family: 'Montserrat';
     }
+
+    button {
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
+    }
 `

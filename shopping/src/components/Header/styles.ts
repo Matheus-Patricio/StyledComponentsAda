@@ -40,9 +40,7 @@ export const AuthButton = styled.button<LoggedButton>`
     align-items: center;
     gap: 0.25rem;
 
-    &:hover {
-        
-    }
+
 `
 export const CartButton = styled.button`
     background-color:#00FF00;

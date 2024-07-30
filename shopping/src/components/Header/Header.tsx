@@ -2,7 +2,7 @@ import * as S from "./styles"
 import { TbLogin2 } from "react-icons/tb";
 import { FiShoppingCart } from "react-icons/fi";
 import { TbLogout2 } from "react-icons/tb";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Cart } from "../Cart/Cart";
 
 
