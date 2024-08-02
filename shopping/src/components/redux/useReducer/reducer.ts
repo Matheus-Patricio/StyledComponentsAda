@@ -10,14 +10,16 @@ interface UserState {
     user: User | null
 }
 
-interface userAction {
+interface UserAction {
     type: string
     payload?: User
 }
 
 const initialState: UserState = {
-    user: null,
-
+    user: {
+        name: 'Math',
+        email: 'contato@email.com'
+    }
 }
 
 
@@ -36,6 +38,8 @@ const initialState: UserState = {
 //     return state
 // }
 
-export function userReducer(state=initialState, action:userAction): UserState {
-    return state
+
+// Todo reducer precisa retornar o nosso estado atualizado  
+export function userReducer(state=initialState, action:UserAction): UserState {
+    return state;
 }
