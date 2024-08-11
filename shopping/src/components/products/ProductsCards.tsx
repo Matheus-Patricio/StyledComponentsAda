@@ -16,7 +16,7 @@ type ObjectData = {
 
 export const ProductsCards: React.FC = () => {
     const { data: products } = useFetch<ObjectData[]>('https://fakestoreapi.com/products')
-    console.log(products)
+//    console.log(products)
     return( 
         <>
         

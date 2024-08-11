@@ -1,6 +1,8 @@
-import { combineReducers } from "redux";
+import { combineReducers, Reducer } from "redux";
 import { userReducer } from "./useReducer/reducer";
 
-export const RootReducer = combineReducers([
+export const rootReducer = combineReducers([
     userReducer
 ])
+
+export type RootReducer = ReturnType<typeof rootReducer>
