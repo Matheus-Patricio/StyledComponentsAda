@@ -5,30 +5,35 @@ import { TbLogout2 } from "react-icons/tb";
 import { useState } from "react";
 import { Cart } from "../Cart/Cart";
 import { useDispatch, useSelector } from "react-redux";
-import { rootReducer, RootReducer }  from "../redux/root-reducer";
-
-
+import { RootReducer }  from "../redux/root-reducer";
 
 
 export const Header: React.FC = () => {
-    const dispatch = useDispatch()
     //acessando o reducer (estado) específico com o reducer Raiz
-    const obj  = useSelector((rootReducer: RootReducer) => rootReducer)
-    console.log(obj)
-
-
-
-    let isLogged = false
+    const { user }  = useSelector((rootReducer: RootReducer) => rootReducer.userReducer)
     const [cart, setHandleCart] = useState(false)
 
+    const isLogged = user !== null
+    
+    const dispatch = useDispatch()
     function handleDispatch() {
-        if (obj === null) {
+        if (user === null) {
             dispatch({
                 type: 'user/login',
-
+                payload: {
+                    name: "Math Logged",
+                    email: "contato@email.com"
+                }
+            })
+        } else {
+            dispatch({
+                type: 'user/logout',
             })
         }
     }
+    
+
+
     return(
         <S.StyledHeader>
             <S.Wrapper>
@@ -38,7 +43,7 @@ export const Header: React.FC = () => {
 
                 <S.ButtonWrapper>
 
-                    <S.AuthButton isLogged={isLogged}  >
+                    <S.AuthButton isLogged={isLogged} onClick={handleDispatch}>
                         
                        {isLogged ? "Logout" : "Login"}
                        {isLogged ? <TbLogout2/> : <TbLogin2/>}
